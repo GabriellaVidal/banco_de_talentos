@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
+import { MeusDadosComponent } from './meus-dados/meus-dados.component';
+import { OportunidadesComponent } from './oportunidades/oportunidades.component';
+import { TalentosComponent } from './talentos/talentos.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 
 const routes: Routes = [{
@@ -12,11 +15,19 @@ const routes: Routes = [{
   children: [
     {
       path: 'dashboard',
-      component: ECommerceComponent,
+      component: DashboardComponent,
     },
     {
-      path: 'iot-dashboard',
-      component: DashboardComponent,
+      path: 'meus-dados',
+      component: MeusDadosComponent,
+    },
+    {
+      path: 'oportunidades',
+      component: OportunidadesComponent,
+    },
+    {
+      path: 'talentos',
+      component: TalentosComponent,
     },
     {
       path: 'layout',

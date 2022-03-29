@@ -10,10 +10,10 @@ interface CardSettings {
 
 @Component({
   selector: 'ngx-dashboard',
-  styleUrls: ['./dashboard.component.scss'],
-  templateUrl: './dashboard.component.html',
+  styleUrls: ['./talentos.component.scss'],
+  templateUrl: './talentos.component.html',
 })
-export class DashboardComponent implements OnDestroy {
+export class TalentosComponent implements OnDestroy {
 
   private alive = true;
 
