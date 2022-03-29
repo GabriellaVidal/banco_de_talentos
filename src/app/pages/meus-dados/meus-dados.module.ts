@@ -9,15 +9,15 @@ import {
   NbRadioModule,
   NbSelectModule,
   NbUserModule,
+  NbTabsetModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { MeusDadosComponent } from './meus-dados.component';
-import { FormInputsComponent } from './form-inputs/form-inputs.component';
-import { FormLayoutsComponent } from './form-layouts/form-layouts.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
-import { ButtonsComponent } from './buttons/buttons.component';
 import { FormsModule as ngFormsModule } from '@angular/forms';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   imports: [
@@ -33,13 +33,11 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
+    NbTabsetModule,
+    NgxMaskModule.forRoot(),
   ],
   declarations: [
     MeusDadosComponent,
-    ButtonsComponent,
-    FormInputsComponent,
-    FormLayoutsComponent,
-    DatepickerComponent,
   ],
 })
 export class MeusDadosModule { }
