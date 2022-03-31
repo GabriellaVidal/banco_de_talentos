@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'ngx-footer',
   styleUrls: ['./footer.component.scss'],
   template: `<div class="socials pull-right">
-      <img src="/assets/images/banco_talentos/trf5.png" class="img-responsive">
+      <img src="assets/images/banco_talentos/trf5.png" class="img-responsive">
     </div>
   `,
 })
