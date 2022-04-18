@@ -1,0 +1,19 @@
+<form class="form-horizontal">
+	<div class="col-12 d-flex flex-wrap">
+		<div class="col-12 form-group">
+			<label for="curso" class="label">Curso</label>
+			<input type="text" nbInput fullWidth id="curso" placeholder="Curso">
+		</div>
+		<div class="col-12 form-group">
+			<label for="instituicao" class="label">Instituição</label>
+			<nb-select fullWidth selected="">
+				<nb-option value="">Selecione</nb-option>
+				<nb-option [value]="instituicao" *ngFor="let instituicao of instituicoes" >{{ instituicao }}</nb-option>
+			</nb-select>
+		</div>
+		<div class="col-12 form-group">
+			<label for="dt_conclusao" class="label">Conclusão</label>
+			<input type="text" nbInput fullWidth id="dt_conclusao" placeholder="Data de Conclusão">
+		</div>
+	</div>
+</form>

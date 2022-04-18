@@ -13,8 +13,16 @@
               <div class="col-12">
                 <h4>Pessoais</h4>
               </div>
-              <div class="col-3">
-                <img class="img-fluid" src="assets/images/nick.png">
+              <div class="col-3 ">
+                <div class="hover hover-1 text-white rounded">
+                  <img class="img-fluid" src="assets/images/nick.png">
+                  <div class="hover-overlay"></div>
+                  <div class="hover-1-content px-5 py-4">
+                    <h3 class="hover-1-title text-uppercase font-weight-bold mb-0">
+                      <nb-icon class="maior" icon="edit-outline"></nb-icon>
+                    </h3>
+                  </div>
+                </div>
               </div>
               <div class="col-9 d-flex flex-wrap">
                 <div class="col-8 form-group">
@@ -77,22 +85,133 @@
         </nb-tab>
         <nb-tab tabTitle="Acadêmicos">
           <div class="row">
-            <div class="col-12">
+            <div class="col-12 d-flex justify-content-between mb-2">
               <h4>Graduação</h4>
+              <button (click)="openCadastrarGraduacao()" nbButton status="primary"><nb-icon class="primary color-white" icon="plus-outline"></nb-icon></button>
             </div>
             <div class="col-12">
-              <hr>
-              <h4>Pós-graduação</h4>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Graduação</th>
+                    <th scope="col">Instituição</th>
+                    <th scope="col">Conclusão</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row d-flex">
+                      <a href="">
+                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
+                      </a>
+                      <a href="">
+                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
+                      </a>
+                    </th>
+                    <td>Ciências e tecnologia</td>
+                    <td>UFRN</td>
+                    <td>12/03/2021</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="">
+                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
+                      </a>
+                      <a href="">
+                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
+                      </a>
+                    </th>
+                    <td>TI</td>
+                    <td>UFRN</td>
+                    <td>12/03/2021</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="">
+                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
+                      </a>
+                      <a href="">
+                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
+                      </a>
+                    </th>
+                    <td>Eng da computação</td>
+                    <td>UFRN</td>
+                    <td>12/03/2021</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr>
+          <div class="row mt-5">
+            <div class="col-12 d-flex justify-content-between mb-2">
+              <h4>Pós-Graduação</h4>
+              <button (click)="openPosCadastrarGraduacao()" nbButton status="primary"><nb-icon class="primary color-white" icon="plus-outline"></nb-icon></button>
+            </div>
+            <div class="col-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pós-Graduação</th>
+                    <th scope="col">Instituição</th>
+                    <th scope="col">Conclusão</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row d-flex">
+                      <a href="">
+                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
+                      </a>
+                      <a href="">
+                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
+                      </a>
+                    </th>
+                    <td>Mestrado - Ciências e tecnologia</td>
+                    <td>UFRN</td>
+                    <td>12/03/2021</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="">
+                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
+                      </a>
+                      <a href="">
+                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
+                      </a>
+                    </th>
+                    <td>Doutorado - TI</td>
+                    <td>UFRN</td>
+                    <td>12/03/2021</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="">
+                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
+                      </a>
+                      <a href="">
+                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
+                      </a>
+                    </th>
+                    <td>MBA - Administração</td>
+                    <td>UFRN</td>
+                    <td>12/03/2021</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </nb-tab>
         <nb-tab tabTitle="Área(s) de Interesse">
           <div class="row">
-            <div class="col-12">
+            <div class="col-12 d-flex flex-wrap">
               <h4>Selecione suas área(s) de interesse:</h4>
-              <div class="demo-items">
-                <nb-checkbox>Checkbox 1</nb-checkbox>
-                <nb-checkbox checked>Checkbox 2</nb-checkbox>
+            </div>
+            <div class="col-12 d-flex flex-wrap">
+              <div class="col-4 demo-items" *ngFor="let area of areas">
+                <nb-checkbox [value]="area">{{ area }}</nb-checkbox>
               </div>
             </div>
           </div>
@@ -108,8 +227,66 @@
         </nb-tab>
         <nb-tab tabTitle="Experiência(s) Profissional(ais)">
           <div class="row">
-            <div class="col-12">
+            <div class="col-12 d-flex justify-content-between mb-2">
               <h4>Experiência</h4>
+              <button (click)="openCadastrarExperiencia()" nbButton status="primary"><nb-icon class="primary color-white" icon="plus-outline"></nb-icon></button>
+            </div>
+            <div class="col-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Área de atuação</th>
+                    <th scope="col">Nome da Atividade</th>
+                    <th scope="col">Instituição</th>
+                    <th scope="col">Conclusão</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row d-flex">
+                      <a href="">
+                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
+                      </a>
+                      <a href="">
+                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
+                      </a>
+                    </th>
+                    <td>Direito administrativo</td>
+                    <td>Diretor</td>
+                    <td>TRF5</td>
+                    <td>12/03/2021</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="">
+                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
+                      </a>
+                      <a href="">
+                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
+                      </a>
+                    </th>
+                    <td>TI</td>
+                    <td>Voluntariado</td>
+                    <td>UFRN</td>
+                    <td>12/03/2021</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="">
+                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
+                      </a>
+                      <a href="">
+                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
+                      </a>
+                    </th>
+                    <td>Eng da computação</td>
+                    <td>Secretário</td>
+                    <td>UFRN</td>
+                    <td>12/03/2021</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </nb-tab>

@@ -1,0 +1,26 @@
+<form class="form-horizontal">
+	<div class="col-12 d-flex flex-wrap">
+		<div class="col-12 form-group">
+			<label for="area" class="label">Área de Atuação</label>
+			<nb-select fullWidth selected="">
+				<nb-option value="">Selecione</nb-option>
+				<nb-option [value]="area" *ngFor="let area of areas" >{{ area }}</nb-option>
+			</nb-select>
+		</div>
+		<div class="col-12 form-group">
+			<label for="atividade" class="label">Nome da atividade</label>
+			<input type="text" nbInput fullWidth id="atividade" placeholder="Nome da atividade">
+		</div>
+		<div class="col-12 form-group">
+			<label for="instituicao" class="label">Instituição</label>
+			<nb-select fullWidth selected="">
+				<nb-option value="">Selecione</nb-option>
+				<nb-option [value]="instituicao" *ngFor="let instituicao of instituicoes" >{{ instituicao }}</nb-option>
+			</nb-select>
+		</div>
+		<div class="col-12 form-group">
+			<label for="dt_conclusao" class="label">Conclusão</label>
+			<input type="text" nbInput fullWidth id="dt_conclusao" placeholder="Data de Conclusão">
+		</div>
+	</div>
+</form>

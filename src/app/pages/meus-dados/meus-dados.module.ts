@@ -14,6 +14,8 @@ import {
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { MeusDadosComponent } from './meus-dados.component';
+import { CadastrarGraduacaoComponent } from './cadastrar-graduacao/cadastrar-graduacao.component';
+import { CadastrarExperienciaComponent } from './cadastrar-experiencia/cadastrar-experiencia.component';
 import { FormsModule as ngFormsModule } from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
@@ -38,6 +40,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
   ],
   declarations: [
     MeusDadosComponent,
+    CadastrarGraduacaoComponent,
+    CadastrarExperienciaComponent,
   ],
 })
-export class MeusDadosModule { }
+export class MeusDadosModule {}
