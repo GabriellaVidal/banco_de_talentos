@@ -1,92 +1,64 @@
-import {Component, OnDestroy} from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
-import { takeWhile } from 'rxjs/operators' ;
+import { Component } from '@angular/core';
 
-interface CardSettings {
-  title: string;
-  iconClass: string;
-  type: string;
-}
+import { NbWindowService } from '@nebular/theme';
+
+import { InscricaoComponent } from './inscricao/inscricao.component';
+
 
 @Component({
-  selector: 'ngx-dashboard',
+  selector: 'ngx-form-layouts',
   styleUrls: ['./oportunidades.component.scss'],
   templateUrl: './oportunidades.component.html',
 })
-export class OportunidadesComponent implements OnDestroy {
+export class OportunidadesComponent {
 
-  private alive = true;
+  areas = ['DIREITO', 'GESTÃO ESTRATÉGICA', 'INFORMÁTICA', 'LÍNGUAS', 'MATERIAL E PATRIMÔNIO', 'ORÇAMENTO E FINANÇAS', 'PESQUISA', 
+  'QUALIDADE NO SERVIÇO PÚBLICO', 'COMUNICAÇÃO', 'AUDITORIA E CONTROLE', 'DOCUMENTAÇÃO', 'GESTÃO DE PESSOAS', 'LICITAÇÃO E CONTRATOS', 'EDUCAÇÃO', 
+  'ENGENHARIA', 'ARQUITETURA', 'CIÊNCIAS HUMANAS', 'SEGURANÇA E TRANSPORTE'];
 
-  lightCard: CardSettings = {
-    title: 'Light',
-    iconClass: 'nb-lightbulb',
-    type: 'primary',
-  };
-  rollerShadesCard: CardSettings = {
-    title: 'Roller Shades',
-    iconClass: 'nb-roller-shades',
-    type: 'success',
-  };
-  wirelessAudioCard: CardSettings = {
-    title: 'Wireless Audio',
-    iconClass: 'nb-audio',
-    type: 'info',
-  };
-  coffeeMakerCard: CardSettings = {
-    title: 'Coffee Maker',
-    iconClass: 'nb-coffee-maker',
-    type: 'warning',
-  };
+  graduacoes = ['DIREITO', 'GESTÃO ESTRATÉGICA', 'INFORMÁTICA', 'LÍNGUAS', 'MATERIAL E PATRIMÔNIO', 'ORÇAMENTO E FINANÇAS', 'PESQUISA', 
+  'QUALIDADE NO SERVIÇO PÚBLICO', 'COMUNICAÇÃO', 'AUDITORIA E CONTROLE', 'DOCUMENTAÇÃO', 'GESTÃO DE PESSOAS', 'LICITAÇÃO E CONTRATOS', 'EDUCAÇÃO', 
+  'ENGENHARIA', 'ARQUITETURA', 'CIÊNCIAS HUMANAS', 'SEGURANÇA E TRANSPORTE'];
 
-  statusCards: string;
+  tipos = ['COMITÊ', 'COMISSÃO', 'EVENTO', 'TREINAMENTO'];
 
-  commonStatusCardsSet: CardSettings[] = [
-    this.lightCard,
-    this.rollerShadesCard,
-    this.wirelessAudioCard,
-    this.coffeeMakerCard,
+  oportunidades = [
+    {
+      titulo: 'Meio Ambiente e sustentabilidade', 
+      descricao: 'Palestra sobre concientização ambiental.',
+    },
+    {
+      titulo: 'Diretor do setor de Inovação Judiciário',
+      descricao: 'Vaga para preenchimento de cargo',
+    },
+    {
+      titulo: 'Podcast Justa Prosa',
+      descricao: 'Falando sobre avanços e desafios pela igualdade de gênero.',
+    },
+    {
+      titulo: 'Meio Ambiente e sustentabilidade', 
+      descricao: 'Palestra sobre concientização ambiental.',
+    },
+    {
+      titulo: 'Diretor do setor de Inovação Judiciário',
+      descricao: 'Vaga para preenchimento de cargo',
+    },
   ];
 
-  statusCardsByThemes: {
-    default: CardSettings[];
-    cosmic: CardSettings[];
-    corporate: CardSettings[];
-    dark: CardSettings[];
-  } = {
-    default: this.commonStatusCardsSet,
-    cosmic: this.commonStatusCardsSet,
-    corporate: [
-      {
-        ...this.lightCard,
-        type: 'warning',
-      },
-      {
-        ...this.rollerShadesCard,
-        type: 'primary',
-      },
-      {
-        ...this.wirelessAudioCard,
-        type: 'danger',
-      },
-      {
-        ...this.coffeeMakerCard,
-        type: 'info',
-      },
-    ],
-    dark: this.commonStatusCardsSet,
-  };
+  constructor(private windowService: NbWindowService) {}
 
-  constructor(private themeService: NbThemeService
-              ) {
-    this.themeService.getJsTheme()
-      .pipe(takeWhile(() => this.alive))
-      .subscribe(theme => {
-        this.statusCards = this.statusCardsByThemes[theme.name];
-    });
-
+  openInscricao() {
+    this.windowService.open(InscricaoComponent, { title: `Inscrição` });
   }
 
-  ngOnDestroy() {
-    this.alive = false;
+  hide = false;
+
+  openHideResultados(hideView) {
+    if(hideView == false){
+      this.hide = true
+    } else{
+      this.hide = false
+    }
   }
+
 }

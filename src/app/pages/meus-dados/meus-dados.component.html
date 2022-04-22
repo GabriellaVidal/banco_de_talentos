@@ -39,7 +39,8 @@
                 </div>
                 <div class="col-4 form-group">
                   <label for="dt_nascimento" class="label">Data de nascimento</label>
-                  <input type="text" nbInput fullWidth id="dt_nascimento" placeholder="Data de nascimento" mask="00/00/0000">
+                  <input nbInput fullWidth id="dt_nascimento" placeholder="Data de nascimento" [nbDatepicker]="formpicker">
+                  <nb-datepicker format="dd/MM/yyyy" #formpicker></nb-datepicker>
                 </div>
                 <div class="col-4 form-group">
                   <label for="CPF" class="label">CPF</label>
