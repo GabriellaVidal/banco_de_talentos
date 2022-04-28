@@ -1,45 +1,80 @@
 <div class="row">
   <div class="col-xxxl-3 col-md-6">
     <h1>Talentos</h1>
-  <!-- <div class="col-xxxl-3 col-md-6" *ngFor="let statusCard of statusCards">
-    <ngx-status-card [title]="statusCard.title" [type]="statusCard.type">
-      <i [ngClass]="statusCard.iconClass"></i>
-    </ngx-status-card>
-  </div> -->
   </div>
 </div>
 
 <div class="row">
-  <!-- <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
-    <ngx-temperature></ngx-temperature>
+  <div class="col-12">
+    <nb-card>
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Buscar Talento">
+          <form class="form-horizontal">
+            <div class="row">
+              <div class="col-12 d-flex flex-wrap">
+                <div class="col-6 form-group">
+                  <label for="area_atuacao" class="label">Área de Atuação</label>
+                  <nb-select fullWidth multiple placeholder="Selecione">
+                    <nb-option [value]="area" *ngFor="let area of areas" >{{ area }}</nb-option>
+                  </nb-select>
+                </div>
+                <div class="col-6 form-group">
+                  <label for="graduacao" class="label">Graduação</label>
+                  <nb-select fullWidth multiple placeholder="Selecione">
+                    <nb-option [value]="graduacao" *ngFor="let graduacao of graduacoes" >{{ graduacao }}</nb-option>
+                  </nb-select>
+                </div>
+                <div class="col-6 form-group">
+                  <label for="area_interesse" class="label">Pós Graduação</label>
+                  <nb-select fullWidth multiple placeholder="Selecione">
+                    <nb-option [value]="area" *ngFor="let area of areas" >{{ area }}</nb-option>
+                  </nb-select>
+                </div>
+                <div class="col-6 form-group">
+                  <label for="nome" class="label">Nome</label>
+                  <input type="text" nbInput fullWidth id="nome" placeholder="Nome">
+                </div>
+                <div class="col-12 d-flex justify-content-end">              
+                  <button (click)="openHideResultados(hide)" type="submit" nbButton status="primary">Buscar</button>
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="hide">
+              <div class="col-12">
+                <hr>
+                <h4>Resultados</h4>
+                <p>Resultados encontrados para os parâmetros selecionados.</p>
+              </div>
+              <div class="col-12">
+                <nb-card class="bg-light">
+                  <nb-card-body class="d-flex flex-wrap">
+                    <div class="col-6" *ngFor="let talento of talentos">
+                      <nb-card class="bg-light">
+                        <nb-card-body class="d-flex flex-wrap">
+                          <div class="col-4">
+                            <img class="img-fluid rounded-circle" src="{{ talento?.img }}">
+                          </div>
+                          <div class="col-8">
+                            <div class="d-flex justify-content-between">
+                              <strong>{{ talento?.nome }}</strong>
+                              <nb-icon icon="more-horizontal-outline" pack="eva"></nb-icon>
+                            </div>
+                            <p>             
+                              <span>Área de Atuação: {{ talento?.area_atuacao }}</span><br>
+                              <span>Graduação: {{ talento?.graduacao }}</span><br>
+                              <span>Pós Graduação: {{ talento?.pos_graduacao }}</span>
+                            </p>
+                          </div>
+                        </nb-card-body>
+                      </nb-card>
+                    </div>
+                  </nb-card-body>
+                </nb-card>              
+              </div>
+            </div>
+          </form>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
   </div>
-
-  <div class="col-xxxl-9 col-xxl-8 col-lg-7 col-md-6">
-    <ngx-electricity></ngx-electricity>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xxxl-9 col-xl-12">
-    <ngx-rooms></ngx-rooms>
-  </div>
-
-  <div class="col-xxxl-3 col-xxl-4 col-lg-7 col-md-6">
-    <ngx-contacts></ngx-contacts>
-  </div>
-
-  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
-    <ngx-solar [chartValue]="solarValue"></ngx-solar>
-
-    <ngx-kitten></ngx-kitten>
-  </div>
-
-  <div class="col-xxxl-3 col-xxl-4 col-md-5">
-    <ngx-traffic></ngx-traffic>
-    <ngx-weather></ngx-weather>
-  </div>
-
-  <div class="col-xxxl-6 col-xxl-12 col-md-7">
-    <ngx-security-cameras></ngx-security-cameras>
-  </div> -->
 </div>
