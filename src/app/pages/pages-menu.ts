@@ -25,7 +25,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Configurações',
     icon: 'settings-2',
-    link: '/pages/iot-dashboard',
+    link: '/pages/configuracoes',
   },
   // {
   //   title: 'FEATURES',

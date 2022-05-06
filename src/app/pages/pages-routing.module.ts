@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MeusDadosComponent } from './meus-dados/meus-dados.component';
 import { OportunidadesComponent } from './oportunidades/oportunidades.component';
 import { TalentosComponent } from './talentos/talentos.component';
+import { ConfiguracoesComponent } from './configuracoes/configuracoes.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 
 const routes: Routes = [{
@@ -27,6 +28,10 @@ const routes: Routes = [{
     {
       path: 'talentos',
       component: TalentosComponent,
+    },
+    {
+      path: 'configuracoes',
+      component: ConfiguracoesComponent,
     },
   ],
 }];
