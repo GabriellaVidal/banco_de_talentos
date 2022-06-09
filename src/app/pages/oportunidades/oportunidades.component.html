@@ -15,13 +15,13 @@
                 <div class="col-6 form-group">
                   <label for="area_atuacao" class="label">Área de Atuação</label>
                   <nb-select fullWidth multiple placeholder="Selecione">
-                    <nb-option [value]="area" *ngFor="let area of areas" >{{ area }}</nb-option>
+                    <nb-option [value]="areaAtuacao?.id" *ngFor="let areaAtuacao of areaAtuacoes" >{{ areaAtuacao?.area }}</nb-option>
                   </nb-select>
                 </div>
                 <div class="col-6 form-group">
                   <label for="graduacao" class="label">Graduação</label>
                   <nb-select fullWidth multiple placeholder="Selecione">
-                    <nb-option [value]="graduacao" *ngFor="let graduacao of graduacoes" >{{ graduacao }}</nb-option>
+                    <nb-option [value]="graduacao.id" *ngFor="let graduacao of graduacoes" >{{ graduacao?.curso?.nome }}</nb-option>
                   </nb-select>
                 </div>
                 <div class="col-6 form-group">
@@ -72,7 +72,7 @@
                   <label for="tipo" class="label">Tipo Oportunidade</label>
                   <nb-select fullWidth selected="">
                     <nb-option value="">Selecione</nb-option>
-                    <nb-option [value]="tipo" *ngFor="let tipo of tipos" >{{ tipo }}</nb-option>
+                    <nb-option [value]="tipo.id" *ngFor="let tipo of tipoOportunidades" >{{ tipo.descricao }}</nb-option>
                   </nb-select>
                 </div>
                 <hr>
@@ -103,7 +103,7 @@
                 <div class="col-8 form-group">
                   <label for="area_atuacao" class="label">Área de Atuação</label>
                   <nb-select fullWidth multiple placeholder="Selecione">
-                    <nb-option [value]="area" *ngFor="let area of areas" >{{ area }}</nb-option>
+                    <nb-option [value]="areaAtuacao?.id" *ngFor="let areaAtuacao of areaAtuacoes" >{{ areaAtuacao?.area }}</nb-option>
                   </nb-select>
                 </div>
                 <div class="col-4 form-group">
@@ -113,7 +113,7 @@
                 <div class="col-8 form-group">
                   <label for="graduacao" class="label">Graduação</label>
                   <nb-select fullWidth multiple placeholder="Selecione">
-                    <nb-option [value]="graduacao" *ngFor="let graduacao of graduacoes" >{{ graduacao }}</nb-option>
+                    <nb-option [value]="graduacao.id" *ngFor="let graduacao of graduacoes" >{{ graduacao?.curso?.nome }}</nb-option>
                   </nb-select>
                 </div>
                 <div class="col-4 form-group">
