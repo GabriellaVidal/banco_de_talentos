@@ -19,9 +19,9 @@
                   </nb-select>
                 </div>
                 <div class="col-6 form-group">
-                  <label for="graduacao" class="label">Graduação</label>
+                  <label for="curso" class="label">Curso</label>
                   <nb-select fullWidth multiple placeholder="Selecione">
-                    <nb-option [value]="graduacao.id" *ngFor="let graduacao of graduacoes" >{{ graduacao?.curso?.nome }}</nb-option>
+                    <nb-option [value]="curso.id" *ngFor="let curso of cursos" >{{ curso?.nome }}</nb-option>
                   </nb-select>
                 </div>
                 <div class="col-6 form-group">
@@ -30,7 +30,7 @@
                     <nb-option [value]="area" *ngFor="let area of areas" >{{ area }}</nb-option>
                   </nb-select>
                 </div>
-                <div class="col-12 d-flex justify-content-end">              
+                <div class="col-12 d-flex justify-content-end">
                   <button (click)="openHideResultados(hide)" type="submit" nbButton status="primary">Buscar</button>
                 </div>
               </div>
@@ -54,19 +54,19 @@
                           <div class="d-flex justify-content-between">
                             <p>{{ oportunidade?.descricao }}</p>
                             <button (click)="openInscricao()" nbButton status="primary"><nb-icon class="primary color-white" icon="plus-outline"></nb-icon></button>
-                          </div> 
+                          </div>
                         </nb-card-body>
                       </nb-card>
                     </div>
                   </nb-card-body>
-                </nb-card>              
+                </nb-card>
               </div>
             </div>
           </form>
         </nb-tab>
         <nb-tab tabTitle="Criar Oportunidade">
           <form class="form-horizontal">
-            <div class="row">   
+            <div class="row">
               <div class="col-12">
                 <div class="col-4 form-group">
                   <label for="tipo" class="label">Tipo Oportunidade</label>
@@ -111,14 +111,14 @@
                   <input type="text" nbInput fullWidth id="outros_area" placeholder="Localização">
                 </div>
                 <div class="col-8 form-group">
-                  <label for="graduacao" class="label">Graduação</label>
+                  <label for="curso" class="label">Curso</label>
                   <nb-select fullWidth multiple placeholder="Selecione">
-                    <nb-option [value]="graduacao.id" *ngFor="let graduacao of graduacoes" >{{ graduacao?.curso?.nome }}</nb-option>
+                    <nb-option [value]="curso.id" *ngFor="let curso of cursos" >{{ curso?.nome }}</nb-option>
                   </nb-select>
                 </div>
                 <div class="col-4 form-group">
-                  <label for="outros_graduacao" class="label">Outros</label>
-                  <input type="text" nbInput fullWidth id="outros_graduacao" placeholder="Outros">
+                  <label for="outros_curso" class="label">Outros</label>
+                  <input type="text" nbInput fullWidth id="outros_curso" placeholder="Outros">
                 </div>
                 <div class="col-12 d-flex justify-content-end">
                   <button type="submit" nbButton status="primary">Salvar</button>

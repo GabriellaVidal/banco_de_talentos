@@ -4,12 +4,14 @@ import { InscricaoComponent } from './inscricao/inscricao.component';
 
 import { TipoOportunidadeService } from '../../services/tipo-oportunidade.service';
 import { TipoOportunidade } from '../../models/tipo-oportunidade';
-import { GraduacaoService } from '../../services/graduacao.service';
-import { Graduacao } from '../../models/graduacao';
+import { FormacaoService } from '../../services/formacao.service';
+import { Formacao } from '../../models/formacao';
 import { AreaAtuacaoService } from '../../services/area-atuacao.service';
 import { AreaAtuacao } from '../../models/area-atuacao';
 import { OportunidadeService } from '../../services/oportunidade.service';
 import { Oportunidade } from '../../models/oportunidade';
+import { Curso } from "../../models/curso";
+import { CursoService } from "../../services/curso.service";
 
 @Component({
   selector: 'ngx-form-layouts',
@@ -19,34 +21,38 @@ import { Oportunidade } from '../../models/oportunidade';
 export class OportunidadesComponent {
 
   constructor(
-    private windowService: NbWindowService, 
+    private windowService: NbWindowService,
     private tipoOportunidadeService: TipoOportunidadeService,
-    private graduacaoService: GraduacaoService,
+    private formacaoService: FormacaoService,
     private areaAtuacaoService: AreaAtuacaoService,
+    private cursoService: CursoService,
     private oportunidadeService: OportunidadeService
     ) {}
 
   tipoOportunidade = {} as TipoOportunidade;
   tipoOportunidades: TipoOportunidade[];
 
-  graduacao = {} as Graduacao;
-  graduacoes: Graduacao[];
+  formacao = {} as Formacao;
+  formacoes: Formacao[];
 
   areaAtuacao = {} as AreaAtuacao;
   areaAtuacoes: AreaAtuacao[];
 
+  curso = {} as Curso;
+  cursos: Curso[];
+
   oportunidade = {} as Oportunidade;
   oportunidades: Oportunidade[];
 
-  
-  areas = ['DIREITO', 'GESTÃO ESTRATÉGICA', 'INFORMÁTICA', 'LÍNGUAS', 'MATERIAL E PATRIMÔNIO', 'ORÇAMENTO E FINANÇAS', 'PESQUISA', 
-  'QUALIDADE NO SERVIÇO PÚBLICO', 'COMUNICAÇÃO', 'AUDITORIA E CONTROLE', 'DOCUMENTAÇÃO', 'GESTÃO DE PESSOAS', 'LICITAÇÃO E CONTRATOS', 'EDUCAÇÃO', 
+
+  areas = ['DIREITO', 'GESTÃO ESTRATÉGICA', 'INFORMÁTICA', 'LÍNGUAS', 'MATERIAL E PATRIMÔNIO', 'ORÇAMENTO E FINANÇAS', 'PESQUISA',
+  'QUALIDADE NO SERVIÇO PÚBLICO', 'COMUNICAÇÃO', 'AUDITORIA E CONTROLE', 'DOCUMENTAÇÃO', 'GESTÃO DE PESSOAS', 'LICITAÇÃO E CONTRATOS', 'EDUCAÇÃO',
   'ENGENHARIA', 'ARQUITETURA', 'CIÊNCIAS HUMANAS', 'SEGURANÇA E TRANSPORTE'];
 
 
   // oportunidades = [
   //   {
-  //     titulo: 'Meio Ambiente e sustentabilidade', 
+  //     titulo: 'Meio Ambiente e sustentabilidade',
   //     descricao: 'Palestra sobre concientização ambiental.',
   //   },
   //   {
@@ -58,7 +64,7 @@ export class OportunidadesComponent {
   //     descricao: 'Falando sobre avanços e desafios pela igualdade de gênero.',
   //   },
   //   {
-  //     titulo: 'Meio Ambiente e sustentabilidade', 
+  //     titulo: 'Meio Ambiente e sustentabilidade',
   //     descricao: 'Palestra sobre concientização ambiental.',
   //   },
   //   {
@@ -73,9 +79,15 @@ export class OportunidadesComponent {
     });
   }
 
-  getGraduacoes() {
-    this.graduacaoService.getGraduacoes().subscribe((graduacoes: Graduacao[]) => {
-      this.graduacoes = graduacoes;
+  getCursos() {
+    this.cursoService.getCursos().subscribe((cursos: Curso[]) => {
+      this.cursos = cursos;
+    });
+  }
+
+  getFormacoes() {
+    this.formacaoService.getFormacoes().subscribe((formacoes: Formacao[]) => {
+      this.formacoes = formacoes;
     });
   }
 
@@ -107,7 +119,7 @@ export class OportunidadesComponent {
 
   ngOnInit() {
     this.getTipoOportunidades();
-    this.getGraduacoes();
+    this.getCursos();
     this.getAreaAtuacoes();
     this.getOportunidades();
   }

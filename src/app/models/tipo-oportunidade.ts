@@ -1,5 +1,5 @@
 export interface TipoOportunidade {
-	id: string;
-    descricao: string;
-    removed: string;
+  descricao: string;
+  removed: string;
+  id: string;
 }

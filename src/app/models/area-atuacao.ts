@@ -1,4 +1,4 @@
 export interface AreaAtuacao {
-	id: string;
-    area: string;
+  area: string;
+  id: string;
 }

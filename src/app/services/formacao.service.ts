@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { AreaAtuacao } from '../models/area-atuacao';
+import { Formacao } from '../models/formacao';
+
 
 @Injectable({
   providedIn: 'root',
 })
-export class AreaAtuacaoService {
+export class FormacaoService {
 
-  url = 'http://localhost:8080/api/area-atuacao'; // api rest
+  url = 'http://localhost:8080/api/formacao'; // api rest
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -19,9 +20,9 @@ export class AreaAtuacaoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  // Obtem todos os AreaAtuacoes
-  getAreaAtuacoes(): Observable<AreaAtuacao[]> {
-    return this.httpClient.get<AreaAtuacao[]>(this.url)
+  // Obtem todos os Formacoes
+  getFormacoes(): Observable<Formacao[]> {
+    return this.httpClient.get<Formacao[]>(this.url)
       .pipe(
         retry(2),
         catchError(this.handleError));
