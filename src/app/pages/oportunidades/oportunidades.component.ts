@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NbWindowService } from '@nebular/theme';
 import { InscricaoComponent } from './inscricao/inscricao.component';
-
 import { TipoOportunidadeService } from '../../services/tipo-oportunidade.service';
 import { TipoOportunidade } from '../../models/tipo-oportunidade';
 import { FormacaoService } from '../../services/formacao.service';
@@ -12,6 +11,8 @@ import { OportunidadeService } from '../../services/oportunidade.service';
 import { Oportunidade } from '../../models/oportunidade';
 import { Curso } from "../../models/curso";
 import { CursoService } from "../../services/curso.service";
+import { Nivel } from "../../models/nivel";
+import { NivelService } from "../../services/nivel.service";
 
 @Component({
   selector: 'ngx-form-layouts',
@@ -26,6 +27,7 @@ export class OportunidadesComponent {
     private formacaoService: FormacaoService,
     private areaAtuacaoService: AreaAtuacaoService,
     private cursoService: CursoService,
+    private nivelService: NivelService,
     private oportunidadeService: OportunidadeService
     ) {}
 
@@ -44,34 +46,12 @@ export class OportunidadesComponent {
   oportunidade = {} as Oportunidade;
   oportunidades: Oportunidade[];
 
+  nivel = {} as Nivel;
+  niveis: Nivel[];
 
   areas = ['DIREITO', 'GESTÃO ESTRATÉGICA', 'INFORMÁTICA', 'LÍNGUAS', 'MATERIAL E PATRIMÔNIO', 'ORÇAMENTO E FINANÇAS', 'PESQUISA',
-  'QUALIDADE NO SERVIÇO PÚBLICO', 'COMUNICAÇÃO', 'AUDITORIA E CONTROLE', 'DOCUMENTAÇÃO', 'GESTÃO DE PESSOAS', 'LICITAÇÃO E CONTRATOS', 'EDUCAÇÃO',
-  'ENGENHARIA', 'ARQUITETURA', 'CIÊNCIAS HUMANAS', 'SEGURANÇA E TRANSPORTE'];
-
-
-  // oportunidades = [
-  //   {
-  //     titulo: 'Meio Ambiente e sustentabilidade',
-  //     descricao: 'Palestra sobre concientização ambiental.',
-  //   },
-  //   {
-  //     titulo: 'Diretor do setor de Inovação Judiciário',
-  //     descricao: 'Vaga para preenchimento de cargo',
-  //   },
-  //   {
-  //     titulo: 'Podcast Justa Prosa',
-  //     descricao: 'Falando sobre avanços e desafios pela igualdade de gênero.',
-  //   },
-  //   {
-  //     titulo: 'Meio Ambiente e sustentabilidade',
-  //     descricao: 'Palestra sobre concientização ambiental.',
-  //   },
-  //   {
-  //     titulo: 'Diretor do setor de Inovação Judiciário',
-  //     descricao: 'Vaga para preenchimento de cargo',
-  //   },
-  // ];
+    'QUALIDADE NO SERVIÇO PÚBLICO', 'COMUNICAÇÃO', 'AUDITORIA E CONTROLE', 'DOCUMENTAÇÃO', 'GESTÃO DE PESSOAS', 'LICITAÇÃO E CONTRATOS', 'EDUCAÇÃO',
+    'ENGENHARIA', 'ARQUITETURA', 'CIÊNCIAS HUMANAS', 'SEGURANÇA E TRANSPORTE'];
 
   getTipoOportunidades() {
     this.tipoOportunidadeService.getTipoOportunidades().subscribe((tipoOportunidades: TipoOportunidade[]) => {
@@ -82,6 +62,12 @@ export class OportunidadesComponent {
   getCursos() {
     this.cursoService.getCursos().subscribe((cursos: Curso[]) => {
       this.cursos = cursos;
+    });
+  }
+
+  getNiveis() {
+    this.nivelService.getNiveis().subscribe((niveis: Nivel[]) => {
+      this.niveis = niveis;
     });
   }
 
@@ -120,6 +106,7 @@ export class OportunidadesComponent {
   ngOnInit() {
     this.getTipoOportunidades();
     this.getCursos();
+    this.getNiveis();
     this.getAreaAtuacoes();
     this.getOportunidades();
   }

@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
-import { Curso } from '../models/curso';
+import { Nivel } from '../models/nivel';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CursoService {
+export class NivelService {
 
-  url = 'http://localhost:8080/api/curso'; // api rest
+  url = 'http://localhost:8080/api/nivel'; // api rest
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -19,9 +19,9 @@ export class CursoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  // Obtem todos os Cursos
-  getCursos(): Observable<Curso[]> {
-    return this.httpClient.get<Curso[]>(this.url)
+  // Obtem todos os Nivel
+  getNiveis(): Observable<Nivel[]> {
+    return this.httpClient.get<Nivel[]>(this.url)
       .pipe(
         retry(2),
         catchError(this.handleError));

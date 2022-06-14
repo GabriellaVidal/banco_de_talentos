@@ -78,7 +78,7 @@
                 <label for="funcao" class="label">Função</label>
                 <input type="text" nbInput fullWidth id="funcao" placeholder="Função">
               </div>
-              <div class="col-12 d-flex justify-content-end">              
+              <div class="col-12 d-flex justify-content-end">
                 <button type="submit" nbButton status="primary">Salvar</button>
               </div>
             </div>
@@ -87,8 +87,8 @@
         <nb-tab tabTitle="Acadêmicos">
           <div class="row">
             <div class="col-12 d-flex justify-content-between mb-2">
-              <h4>Graduação</h4>
-              <button (click)="openCadastrarGraduacao()" nbButton status="primary"><nb-icon class="primary color-white" icon="plus-outline"></nb-icon></button>
+              <h4>Formações</h4>
+              <button (click)="openCadastrarFormacao()" nbButton status="primary"><nb-icon class="primary color-white" icon="plus-outline"></nb-icon></button>
             </div>
             <div class="col-12">
               <table class="table">
@@ -97,6 +97,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Graduação</th>
                     <th scope="col">Instituição</th>
+                    <th scope="col">Nível de ensino</th>
                     <th scope="col">Conclusão</th>
                   </tr>
                 </thead>
@@ -112,6 +113,7 @@
                     </th>
                     <td>Ciências e tecnologia</td>
                     <td>UFRN</td>
+                    <td>Graduação</td>
                     <td>12/03/2021</td>
                   </tr>
                   <tr>
@@ -125,6 +127,7 @@
                     </th>
                     <td>TI</td>
                     <td>UFRN</td>
+                    <td>Mestrado</td>
                     <td>12/03/2021</td>
                   </tr>
                   <tr>
@@ -138,6 +141,7 @@
                     </th>
                     <td>Eng da computação</td>
                     <td>UFRN</td>
+                    <td>Doutorado</td>
                     <td>12/03/2021</td>
                   </tr>
                 </tbody>
@@ -145,65 +149,6 @@
             </div>
           </div>
           <hr>
-          <div class="row mt-5">
-            <div class="col-12 d-flex justify-content-between mb-2">
-              <h4>Pós-Graduação</h4>
-              <button (click)="openPosCadastrarGraduacao()" nbButton status="primary"><nb-icon class="primary color-white" icon="plus-outline"></nb-icon></button>
-            </div>
-            <div class="col-12">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Pós-Graduação</th>
-                    <th scope="col">Instituição</th>
-                    <th scope="col">Conclusão</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row d-flex">
-                      <a href="">
-                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
-                      </a>
-                      <a href="">
-                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
-                      </a>
-                    </th>
-                    <td>Mestrado - Ciências e tecnologia</td>
-                    <td>UFRN</td>
-                    <td>12/03/2021</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <a href="">
-                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
-                      </a>
-                      <a href="">
-                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
-                      </a>
-                    </th>
-                    <td>Doutorado - TI</td>
-                    <td>UFRN</td>
-                    <td>12/03/2021</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <a href="">
-                        <nb-icon class="primary" icon="edit-outline"></nb-icon>
-                      </a>
-                      <a href="">
-                        <nb-icon class="primary" icon="trash-outline"></nb-icon>
-                      </a>
-                    </th>
-                    <td>MBA - Administração</td>
-                    <td>UFRN</td>
-                    <td>12/03/2021</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
         </nb-tab>
         <nb-tab tabTitle="Área(s) de Interesse">
           <div class="row">
@@ -221,7 +166,7 @@
               <label for="outras_areas" class="label">Outras</label>
               <textarea rows="5" nbInput fullWidth placeholder="Digite aqui outras áreas de interesse"></textarea>
             </div>
-            <div class="col-12 d-flex justify-content-end">              
+            <div class="col-12 d-flex justify-content-end">
               <button type="submit" nbButton status="primary">Salvar</button>
             </div>
           </div>

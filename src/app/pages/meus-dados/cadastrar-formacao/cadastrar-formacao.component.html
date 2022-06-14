@@ -11,6 +11,13 @@
 				<nb-option [value]="instituicao" *ngFor="let instituicao of instituicoes" >{{ instituicao }}</nb-option>
 			</nb-select>
 		</div>
+    <div class="col-12 form-group">
+      <label for="nivel" class="label">Nivel de ensino</label>
+      <nb-select fullWidth selected="">
+        <nb-option value="">Selecione</nb-option>
+        <nb-option [value]="nivel" *ngFor="let nivel of niveis" >{{ nivel }}</nb-option>
+      </nb-select>
+    </div>
 		<div class="col-12 form-group">
 			<label for="dt_conclusao_graduacao" class="label">Conclusão</label>
 			<!-- <input nbInput fullWidth id="dt_conclusao_graduacao" placeholder="Data de Conclusão" [nbDatepicker]="dt_conclusao_graduacao">
